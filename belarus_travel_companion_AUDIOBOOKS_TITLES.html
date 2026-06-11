@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#1f3f46">
+<title>Belarus Travel Companion V2</title>
+<style>
+:root{--cream:#f8f1e7;--paper:#fffaf3;--gold:#c8a86a;--dark:#1f3f46;--text:#2f221a;--muted:#6b6259;--r:26px}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fbf6ed,#eef6f7);color:var(--text);padding-bottom:100px}
+header{min-height:62vh;padding:28px 18px;display:flex;flex-direction:column;justify-content:end;color:white;background:linear-gradient(rgba(20,30,32,.25),rgba(20,30,32,.75)),url('https://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20the%20Braslav%20lakes.jpg') center/cover}
+h1{font-size:46px;line-height:.94;margin:0 0 12px;font-weight:900;letter-spacing:-.05em}
+h2{font-size:34px;line-height:1.05;margin:10px 0 12px;letter-spacing:-.03em}
+h3{font-size:24px}
+p,li{line-height:1.55}
+.container{padding:16px}
+.badge{display:inline-block;padding:8px 13px;border-radius:999px;background:rgba(255,250,243,.85);color:var(--dark);font-weight:800}
+.card,.day-card{background:rgba(255,250,243,.88);border-radius:var(--r);box-shadow:0 16px 44px rgba(47,34,26,.12);overflow:hidden;margin-bottom:18px}
+.card{padding:18px}
+.day-card img{width:100%;height:245px;object-fit:cover;display:block;background:#ddd}
+.day-body{padding:18px}
+.motto{border-left:4px solid var(--gold);padding-left:14px;font-size:20px;color:var(--dark);font-weight:700;margin:14px 0 18px}
+.info-grid{display:grid;gap:10px;margin:16px 0}
+.info-grid div{padding:14px;border-radius:18px;background:rgba(31,63,70,.07)}
+.info-grid b{display:block;text-transform:uppercase;font-size:12px;color:var(--dark);margin-bottom:5px;letter-spacing:.05em}
+button,.linkbtn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;border:0;border-radius:16px;padding:13px 16px;background:var(--dark);color:white;font-weight:800;text-decoration:none}
+.audio-btn{width:100%;margin:10px 0 14px;background:linear-gradient(135deg,var(--dark),#2f6b79)}
+details{border-top:1px solid rgba(47,34,26,.12);padding:13px 0}
+summary{font-weight:900;color:var(--dark);font-size:18px}
+.map{height:320px;border-radius:20px;overflow:hidden;margin-top:12px;background:#ddd}
+iframe{width:100%;height:100%;border:0}
+.links{display:grid;gap:10px;margin-top:12px}
+.expense-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47,34,26,.15);font-size:16px}
+.expense-item{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(47,34,26,.1);padding:12px 0}
+.bottom-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:99;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;background:rgba(255,250,243,.92);backdrop-filter:blur(16px);border-radius:24px;padding:8px;box-shadow:0 18px 50px rgba(0,0,0,.18)}
+.bottom-nav a{text-align:center;text-decoration:none;color:var(--dark);font-size:11px;font-weight:800;padding:8px 2px;border-radius:16px}
+.bottom-nav span{display:block;font-size:21px;margin-bottom:2px}
+.notice{padding:14px;border-radius:18px;background:rgba(200,168,106,.16);color:var(--dark)}
+@media(min-width:800px){.container{max-width:820px;margin:auto}h1{font-size:76px}.day-card img{height:360px}}
+
+.photobook-preview{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+.spread{
+  border-radius:20px;
+  padding:14px;
+  background:linear-gradient(135deg,rgba(255,250,243,.95),rgba(200,168,106,.12));
+  border:1px solid rgba(47,34,26,.08);
+}
+.spread b{
+  display:block;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+.book-options{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+.book-status{
+  margin-top:12px;
+  padding:14px;
+  border-radius:18px;
+  background:rgba(31,63,70,.08);
+  color:var(--dark);
+  font-weight:700;
+}
+
+
+.my-photos{
+  margin-top:14px;
+  padding:14px;
+  border-radius:20px;
+  background:rgba(31,63,70,.06);
+}
+.my-photos h3{
+  margin:0 0 8px;
+}
+.photo-upload-row{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+}
+.photo-upload-row input[type=file]{
+  background:white;
+}
+.day-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.user-photo{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  background:#eee;
+  min-height:130px;
+}
+.user-photo img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+}
+.user-photo button{
+  position:absolute;
+  top:6px;
+  right:6px;
+  min-height:34px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(47,34,26,.82);
+  color:white;
+}
+.photo-hint{
+  font-size:13px;
+  color:var(--muted,#6b6259);
+  line-height:1.4;
+}
+
+
+.ai-book-box{
+  margin-top:14px;
+  padding:16px;
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(31,63,70,.09),rgba(200,168,106,.16));
+  border:1px solid rgba(47,34,26,.08);
+}
+.ai-book-steps{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+.ai-step{
+  padding:12px;
+  border-radius:18px;
+  background:rgba(255,255,255,.62);
+}
+.mode-grid{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+.mode-card{
+  padding:14px;
+  border-radius:20px;
+  background:rgba(255,250,243,.9);
+  border:1px solid rgba(200,168,106,.25);
+}
+.mode-card b{
+  display:block;
+  color:var(--dark);
+  margin-bottom:5px;
+}
+@media(min-width:760px){
+  .mode-grid{grid-template-columns:1fr 1fr}
+}
+
+
+.book-render{margin-top:16px;display:grid;gap:16px}
+.book-page{aspect-ratio:1/1;border-radius:22px;padding:18px;background:#fffaf3;box-shadow:0 18px 50px rgba(47,34,26,.12);border:1px solid rgba(200,168,106,.24);position:relative;overflow:hidden}
+.book-cover{color:white;background:linear-gradient(135deg,rgba(31,63,70,.75),rgba(47,34,26,.62)),url('https://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20the%20Braslav%20lakes.jpg') center/cover;display:flex;flex-direction:column;justify-content:end}
+.book-cover h3{font-size:34px;line-height:.95;margin:0 0 8px}
+.polaroid-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.polaroid{background:white;padding:8px 8px 24px;transform:rotate(-1deg);box-shadow:0 10px 26px rgba(47,34,26,.16)}
+.polaroid:nth-child(even){transform:rotate(2deg)}
+.polaroid-img{height:95px;background:#ddd center/cover;border-radius:4px}
+.polaroid span{display:block;margin-top:7px;font-size:12px;font-weight:800;color:var(--dark)}
+.journal-page{display:grid;grid-template-rows:auto 1fr auto;gap:12px}
+.journal-title{font-weight:900;color:var(--dark);font-size:24px}
+.journal-photo{border-radius:18px;background:#ddd center/cover;min-height:180px}
+.journal-note{border-left:4px solid var(--gold);padding-left:12px;color:var(--dark);font-weight:700}
+.print-actions{display:grid;gap:10px;margin-top:14px}
+@media(min-width:760px){.book-render{grid-template-columns:1fr 1fr}}
+@media print{body{background:white!important;padding-bottom:0!important}header,.bottom-nav,.card:not(#photobook){display:none!important}#photobook{box-shadow:none!important}.book-page{break-inside:avoid;margin-bottom:20px}button,select,.book-options,.book-status,.ai-book-box{display:none!important}}
+
+
+/* Modern photobook style picker */
+.style-picker{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin:16px 0;
+}
+.style-option{
+  border:1px solid rgba(47,34,26,.10);
+  border-radius:22px;
+  padding:14px;
+  background:rgba(255,250,243,.9);
+  display:grid;
+  grid-template-columns:86px 1fr;
+  gap:12px;
+  align-items:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.style-option.active{
+  outline:3px solid rgba(200,168,106,.35);
+  transform:translateY(-2px);
+}
+.style-thumb{
+  height:86px;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 12px 30px rgba(47,34,26,.12);
+}
+.style-thumb.magazine{background:linear-gradient(135deg,#1f3f46,#c8a86a)}
+.style-thumb.polaroid{background:#f7f0e6}
+.style-thumb.minimal{background:#fff}
+.style-thumb.black{background:#101010}
+.style-thumb.diary{background:linear-gradient(135deg,#e6d6bd,#6f7c66)}
+.style-thumb:after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:2px solid rgba(255,255,255,.55);
+  border-radius:10px;
+}
+.style-option b{
+  display:block;
+  color:var(--dark);
+  font-size:18px;
+  margin-bottom:4px;
+}
+.style-option span{
+  color:var(--muted,#6b6259);
+  font-size:14px;
+  line-height:1.35;
+}
+.book-render.modern{
+  display:grid;
+  gap:18px;
+}
+.book-page{
+  min-height:360px;
+}
+.book-page.luxury-magazine{
+  aspect-ratio:4/5;
+  border-radius:28px;
+  color:white;
+  padding:24px;
+  background:linear-gradient(135deg,rgba(31,63,70,.72),rgba(47,34,26,.38)), var(--book-img) center/cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+}
+.book-page.luxury-magazine h3{font-size:42px;line-height:.92;margin:0}
+.book-page.luxury-magazine .caption{font-size:15px;text-transform:uppercase;letter-spacing:.15em;color:#f1dba8}
+.book-page.polaroid-modern{
+  background:#f8f1e7;
+  padding:20px;
+}
+.polaroid-board{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.polaroid-card{
+  background:white;
+  padding:9px 9px 30px;
+  box-shadow:0 12px 30px rgba(47,34,26,.18);
+  transform:rotate(-2deg);
+}
+.polaroid-card:nth-child(even){transform:rotate(2deg)}
+.polaroid-card div{height:120px;background:var(--p) center/cover}
+.polaroid-card span{font-size:12px;font-weight:800;margin-top:8px;display:block}
+.book-page.minimal-white{
+  background:#fff;
+  border-radius:28px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+  padding:18px;
+}
+.minimal-photo{border-radius:22px;background:var(--book-img) center/cover}
+.minimal-text{display:flex;flex-direction:column;justify-content:center}
+.minimal-text h3{font-size:32px;line-height:1;margin:0 0 14px;color:#1f3f46}
+.book-page.cinematic-black{
+  background:#101010;
+  color:white;
+  border-radius:28px;
+  padding:14px;
+}
+.cinema-photo{
+  height:250px;
+  border-radius:20px;
+  background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.45)),var(--book-img) center/cover;
+}
+.cinema-title{
+  padding:18px 6px 4px;
+  font-size:32px;
+  font-weight:900;
+  line-height:.95;
+}
+.cinema-note{color:#d9c08a;padding:0 6px}
+.book-page.editorial-diary{
+  background:#efe4d3;
+  border-radius:28px;
+  padding:20px;
+  display:grid;
+  gap:14px;
+}
+.diary-top{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.diary-photo{height:160px;border-radius:20px;background:var(--book-img) center/cover}
+.diary-note{
+  background:rgba(255,250,243,.78);
+  border-radius:18px;
+  padding:14px;
+  font-family:Georgia,serif;
+  font-size:19px;
+  line-height:1.35;
+}
+@media(min-width:780px){
+  .style-picker{grid-template-columns:1fr 1fr}
+  .book-render.modern{grid-template-columns:1fr 1fr}
+}
+@media print{
+  .style-picker,.print-actions,#visualBookStatus{display:none!important}
+}
+
+
+.audio-books-grid{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+.audio-book-card{
+  border-radius:20px;
+  padding:14px;
+  background:rgba(255,250,243,.9);
+  border:1px solid rgba(200,168,106,.24);
+  box-shadow:0 10px 28px rgba(47,34,26,.07);
+}
+.audio-book-card b{
+  display:block;
+  color:var(--dark);
+  font-size:18px;
+  margin-bottom:6px;
+}
+.audio-book-card span{
+  display:block;
+  color:var(--muted,#6b6259);
+  font-size:14px;
+  line-height:1.42;
+}
+.audio-book-card a{
+  display:inline-flex;
+  margin-top:10px;
+  min-height:42px;
+  align-items:center;
+  justify-content:center;
+  padding:10px 13px;
+  border-radius:14px;
+  background:var(--dark);
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+}
+.audio-source{
+  background:linear-gradient(135deg,rgba(31,63,70,.92),rgba(47,34,26,.82));
+  color:white;
+}
+.audio-source b,.audio-source span{
+  color:white;
+}
+.audio-source a{
+  background:linear-gradient(135deg,var(--gold,#c8a86a),#efd28f);
+  color:#2f221a;
+}
+@media(min-width:760px){
+  .audio-books-grid{grid-template-columns:1fr 1fr}
+}
+
+
+.listen-road-grid{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+.listen-day-card{
+  border-radius:22px;
+  padding:14px;
+  background:linear-gradient(135deg,rgba(255,250,243,.94),rgba(31,63,70,.07));
+  border:1px solid rgba(47,34,26,.08);
+}
+.listen-day-card b{
+  display:block;
+  color:var(--dark);
+  font-size:18px;
+  margin-bottom:6px;
+}
+.listen-day-card .listen-meta{
+  font-size:13px;
+  color:var(--muted,#6b6259);
+  line-height:1.45;
+}
+.listen-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:10px;
+}
+.listen-actions a,.listen-actions button{
+  min-height:42px;
+  border-radius:14px;
+  padding:10px;
+  font-size:13px;
+}
+.listen-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--dark);
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+}
+.saved-listen{
+  background:rgba(200,168,106,.16)!important;
+  color:#2f221a!important;
+}
+.listen-status{
+  margin-top:8px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--dark);
+}
+@media(min-width:760px){
+  .listen-road-grid{grid-template-columns:1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+<header id="home">
+  <div class="badge">Travel Companion V2</div>
+  <h1>Беларусь • Premium Road Trip</h1>
+  <p>Все дни маршрута, Яндекс Музыка, аудиогиды, карты, брони, расходы и offline travel mode.</p>
+</header>
+
+<main class="container">
+<section class="card" id="offline">
+<h2>Offline Travel Mode</h2>
+<p class="notice">Сохраните маршрут, travel‑данные, расходы и аудиогиды для дороги без стабильного интернета. Карты Google требуют интернет, но ссылки и данные останутся внутри файла.</p>
+<button onclick="saveOffline()">Сохранить поездку офлайн</button>
+<p id="offlineStatus"></p>
+</section>
+
+<section id="days">
+
+    <article class="day-card" id="day1">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20the%20Braslav%20lakes.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day1')">
+          </div>
+          <div class="day-gallery" id="gallery-day1"></div>
+        </div>
+
+        <div class="badge">День 1</div>
+        <h2>Москва → Браславские озёра</h2>
+        <div class="motto">«Первый день — не про спешку, а про дорогу, воду и ощущение отпуска.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%B2%20%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D1%83%20road%20trip">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 780–850 км</div>
+          <div><b>Время в пути</b>10,5–12 часов с остановками</div>
+          <div><b>Гостиница</b>Nomad Houses / Vaspan</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Braslav%20Lakes&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>05:30 — выезд из Москвы</li><li>08:30 — кофе и завтрак по трассе</li><li>13:00 — обед в районе Витебска / Полоцка</li><li>17:00–18:00 — прибытие на Браславские озёра</li><li>19:00 — озеро Струсто, прогулка, закат</li><li>21:00 — ужин и отдых</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Кофе по трассе</li><li>Лёгкий обед в дороге</li><li>Ужин у озера / в месте проживания</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Озеро Струсто</li><li>Пирс у воды</li><li>Закат над Браславскими озёрами</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://nomadhouses.by/list/">Nomad Houses</a><a class="linkbtn" target="_blank" href="https://www.braslaw.by/ozero-strusto">Озеро Струсто</a><a class="linkbtn" target="_blank" href="https://www.braslaw.by/braslav">Браслав</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day2">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/SIlent%20morning%20at%20Lake%20Naroch.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day2')">
+          </div>
+          <div class="day-gallery" id="gallery-day2"></div>
+        </div>
+
+        <div class="badge">День 2</div>
+        <h2>Браслав → Мядель → Нарочь → Наносы</h2>
+        <div class="motto">«Из озёрного края — в этно‑Беларусь, где день звучит тише.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=slow%20travel%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 150–170 км</div>
+          <div><b>Время в пути</b>2,5–3 часа в пути</div>
+          <div><b>Гостиница</b>Наносы Отдых</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Nanosy%20Naroch&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>09:00 — завтрак и прогулка по Браславу</li><li>10:30 — выезд в сторону Нарочи</li><li>13:00 — Мядель / обед</li><li>15:00 — Наносы, этнокомплекс, прогулка</li><li>18:00 — винокурня Нарочь</li><li>20:00 — национальный ужин</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Обед в районе Мяделя</li><li>Дегустация / винокурня Нарочь</li><li>Ужин в Наносах</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Наносы</li><li>Озеро Нарочь</li><li>Деревянные дома и конюшни</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://nanosyotdyh.by/prozhivanie">Наносы проживание</a><a class="linkbtn" target="_blank" href="https://nanosyotdyh.by/ekskursii">Наносы экскурсии</a><a class="linkbtn" target="_blank" href="https://narochdistillery.by/">Винокурня Нарочь</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day3">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kalozha%20Church%201.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day3')">
+          </div>
+          <div class="day-gallery" id="gallery-day3"></div>
+        </div>
+
+        <div class="badge">День 3</div>
+        <h2>Нарочь → Будслав → Лида → Гродно</h2>
+        <div class="motto">«День контрастов: святыня, замок, пиво и вечерний Гродно.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D0%B2%20%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D1%83%20%D0%BD%D0%B0%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B5">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 350 км за день</div>
+          <div><b>Время в пути</b>5–6 часов суммарно</div>
+          <div><b>Гостиница</b>THE CULT Boutique Hotel</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Grodno&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>08:30 — завтрак в Наносах</li><li>10:00 — Будславский костёл</li><li>12:30 — переезд в Лиду</li><li>15:00 — Лидский замок</li><li>16:30 — музей Лидского пива</li><li>18:30 — выезд в Гродно</li><li>20:00 — заселение и ужин</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Кофе после Будслава</li><li>Короткий обед в Лиде</li><li>Ужин Bakst в Гродно</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Будславский костёл</li><li>Двор Лидского замка</li><li>Вечерние улицы Гродно</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://budslau.by/historyja">Будславский костёл</a><a class="linkbtn" target="_blank" href="https://ru.belarus.travel/news/lida-castle">Лидский замок</a><a class="linkbtn" target="_blank" href="https://museum.lidskae.by/">Музей Лидского пива</a><a class="linkbtn" target="_blank" href="https://thecult.by/">THE CULT</a><a class="linkbtn" target="_blank" href="https://bakst.by/">Bakst</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day4">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kalozha%20Church%201.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day4')">
+          </div>
+          <div class="day-gallery" id="gallery-day4"></div>
+        </div>
+
+        <div class="badge">День 4</div>
+        <h2>Гродно</h2>
+        <div class="motto">«Гродно нужно не смотреть, а проживать пешком.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%83%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>городской день</div>
+          <div><b>Время в пути</b>без длинных переездов</div>
+          <div><b>Гостиница</b>THE CULT Boutique Hotel</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Kalozha%20Church%20Grodno&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>09:30 — завтрак</li><li>11:00 — старый город и Советская улица</li><li>13:30 — обед в центре</li><li>15:00 — Коложская церковь и Неман</li><li>17:00 — отдых в отеле</li><li>19:30 — вечерний Гродно и ужин</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Завтрак в отеле / кафе</li><li>Кофе на Советской</li><li>Ужин в старом центре</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Коложская церковь</li><li>Вид на Неман</li><li>Советская улица вечером</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://yandex.ru/maps/?text=Коложская%20церковь%20Гродно">Коложская церковь</a><a class="linkbtn" target="_blank" href="https://bakst.by/">Bakst</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day5">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/MIR%20CASTLE%20-%20BELARUS.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day5')">
+          </div>
+          <div class="day-gallery" id="gallery-day5"></div>
+        </div>
+
+        <div class="badge">День 5</div>
+        <h2>Гродно → Мир → Несвиж</h2>
+        <div class="motto">«День замков: история, парк и ночь в Несвиже.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=cinematic%20travel%20music">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 205 км</div>
+          <div><b>Время в пути</b>3–4 часа</div>
+          <div><b>Гостиница</b>Гостиница «Палац»</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Mir%20Castle%20Nesvizh&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>09:00 — выезд из Гродно</li><li>12:00 — Мирский замок</li><li>14:30 — переезд в Несвиж</li><li>15:30 — Несвижский замок и парк</li><li>18:00 — заселение в «Палац»</li><li>20:00 — ужин в ресторане «Гетман»</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Кофе у Мирского замка</li><li>Обед / перекус по дороге</li><li>Ужин «Гетман»</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Мирский замок с воды</li><li>Несвижский парк</li><li>Вечер у дворца</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://mirzamak.by/">Мирский замок</a><a class="linkbtn" target="_blank" href="https://niasvizh.by/">Несвижский замок</a><a class="linkbtn" target="_blank" href="https://niasvizh.by/en/hotel-palace/">Гостиница «Палац»</a><a class="linkbtn" target="_blank" href="https://niasvizh.by/posetitelyam/pitanie-i-prozhivanie/uslugi_pitaniya/">Ресторан «Гетман»</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day6">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Minsk.%20Street%20in%20Trinity%20Suburb.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day6')">
+          </div>
+          <div class="day-gallery" id="gallery-day6"></div>
+        </div>
+
+        <div class="badge">День 6</div>
+        <h2>Несвиж → Минск</h2>
+        <div class="motto">«Минск — пауза комфорта после озёр и замков.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B9%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 120 км</div>
+          <div><b>Время в пути</b>1,5 часа</div>
+          <div><b>Гостиница</b>Hotel Europe Minsk</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Minsk%20Hotel%20Europe&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>10:00 — спокойное утро в Несвиже</li><li>12:00 — выезд в Минск</li><li>14:00 — заселение</li><li>16:00 — прогулка по центру</li><li>20:00 — ужин</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Кофе в Несвиже</li><li>Ужин в центре Минска</li><li>Кухмистр</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Троицкое предместье</li><li>Верхний город</li><li>Вечерний Минск</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://www.hoteleurope.by/en/">Hotel Europe</a><a class="linkbtn" target="_blank" href="https://www.kuhmistr.by/">Кухмистр</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day7">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/BELAZ%20truck%20zhodino.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day7')">
+          </div>
+          <div class="day-gallery" id="gallery-day7"></div>
+        </div>
+
+        <div class="badge">День 7</div>
+        <h2>Минск → БелАЗ</h2>
+        <div class="motto">«Индустриальный масштаб как контраст к замкам и озёрам.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=drive%20energy%20music">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 55 км в одну сторону</div>
+          <div><b>Время в пути</b>45–60 минут</div>
+          <div><b>Гостиница</b>Hotel Europe Minsk</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=BELAZ%20Zhodino&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>09:00 — завтрак</li><li>10:00 — выезд в Жодино</li><li>11:00 — экскурсия БелАЗ</li><li>14:00 — возвращение в Минск</li><li>17:00 — отдых</li><li>20:00 — ужин</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Кофе перед выездом</li><li>Обед после экскурсии</li><li>Ужин в Минске</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>БелАЗ</li><li>огромные карьерные самосвалы</li><li>индустриальные кадры</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://www.belaz.by/en/press-service/excursions/">БелАЗ экскурсии</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day8">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Belarus-Sula-Manor%20of%20Lenski%20Family-House.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day8')">
+          </div>
+          <div class="day-gallery" id="gallery-day8"></div>
+        </div>
+
+        <div class="badge">День 8</div>
+        <h2>Минск → Сула</h2>
+        <div class="motto">«Усадебная Беларусь, история и национальный вечер.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D1%8D%D1%82%D0%BD%D0%BE%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>≈ 50–60 км</div>
+          <div><b>Время в пути</b>около 1 часа</div>
+          <div><b>Гостиница</b>Hotel Europe Minsk</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Sula%20History%20Park&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>10:00 — завтрак</li><li>11:30 — выезд в Сулу</li><li>13:00 — парк истории Сула</li><li>16:00 — прогулки и дегустации</li><li>19:00 — национальный ужин</li><li>21:00 — возвращение в Минск</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Обед / дегустации в Суле</li><li>Национальный ужин</li><li>чай / десерты</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Усадьба</li><li>парк</li><li>деревянные постройки</li><li>вечерняя Сула</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://parksula.by/">Парк истории Сула</a></div></details>
+      </div>
+    </article>
+    
+
+    <article class="day-card" id="day9">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/OPEN%20AIR%20VILLAGE%20AT%20DUDUTKI%20-%20BELARUS.jpg" alt="">
+      <div class="day-body">
+        <div class="my-photos">
+          <h3>Мои фото дня</h3>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-upload-row">
+            <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day9')">
+          </div>
+          <div class="day-gallery" id="gallery-day9"></div>
+        </div>
+
+        <div class="badge">День 9</div>
+        <h2>Минск → Дудутки → Москва</h2>
+        <div class="motto">«Финальный день: ремёсла, дорога домой и мягкое завершение поездки.»</div>
+        <div class="info-grid">
+          <div><b>Музыка дня</b><a target="_blank" href="https://music.yandex.ru/search?text=%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B4%D0%BE%D0%BC%D0%BE%D0%B9%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Яндекс Музыка: музыка в дорогу</a></div>
+<div><b>Расстояние</b>Минск → Москва ≈ 720 км</div>
+          <div><b>Время в пути</b>9–10 часов</div>
+          <div><b>Гостиница</b>возвращение домой</div>
+        </div>
+        
+        <details open><summary>Карта дня</summary><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Dudutki%20Belarus&output=embed"></iframe></div></details>
+        <details><summary>Таймлайн</summary><ul><li>09:00 — завтрак и сборы</li><li>10:30 — Дудутки</li><li>13:00 — выезд в сторону Москвы</li><li>17:00 — большая остановка на кофе</li><li>22:00–23:00 — прибытие</li></ul></details>
+        <details><summary>Еда и остановки</summary><ul><li>Дудутки: дегустации</li><li>Кофе по дороге</li><li>лёгкий ужин в пути</li></ul></details>
+        <details><summary>Фото-точки</summary><ul><li>Дудутки</li><li>ремесленные мастерские</li><li>финальное фото путешествия</li></ul></details>
+        <details><summary>Брони и ссылки</summary><div class="links"><a class="linkbtn" target="_blank" href="https://dudutki.by/">Дудутки</a></div></details>
+      </div>
+    </article>
+    
+</section>
+
+<section class="card" id="audiobooks-belarus">
+  <h2>Аудиокниги о Беларуси</h2>
+  <p class="notice">
+    Короткий культурный блок для дороги: здесь оставлены только выбранные аудиоматериалы о Беларуси.
+  </p>
+
+  
+<div class="audio-books-grid">
+    <div class="audio-book-card audio-source">
+      <b>«Дикая охота короля Стаха»</b>
+      <span>Аудиокнига Владимира Короткевича — атмосферная Беларусь, легенды и старые усадьбы.</span>
+      <a target="_blank" href="https://music.yandex.ru/album/17252529/track/145196700?utm_source=web&utm_medium=copy_link">Слушать</a>
+    </div>
+
+    <div class="audio-book-card audio-source">
+      <b>«Чёрный замок Ольшанский»</b>
+      <span>Исторический детектив и замковая атмосфера для road‑trip по Беларуси.</span>
+      <a target="_blank" href="https://music.yandex.ru/album/30993140/track/127849615?utm_source=web&utm_medium=copy_link">Слушать</a>
+    </div>
+
+    <div class="audio-book-card audio-source">
+      <b>Подкаст / аудиоальбом о Беларуси</b>
+      <span>Большой аудиоальбом для дороги и путешествия.</span>
+      <a target="_blank" href="https://music.yandex.ru/album/27740997?utm_source=web&utm_medium=copy_link">Слушать</a>
+    </div>
+
+    <div class="audio-book-card audio-source">
+      <b>Аудиоподкаст о Беларуси — Звук</b>
+      <span>Подкаст для прослушивания в дороге.</span>
+      <a target="_blank" href="https://zvuk.com/episode/85047023">Слушать</a>
+    </div>
+
+    <div class="audio-book-card audio-source">
+      <b>Аудиоальбом о Беларуси — Яндекс Музыка</b>
+      <span>Музыкально‑аудиальная подборка для путешествия.</span>
+      <a target="_blank" href="https://music.yandex.ru/album/41097316">Слушать</a>
+    </div>
+  </div>
+
+</section>
+
+<section class="card" id="photobook">
+  <h2>Фотокнига</h2>
+
+  <p class="notice">
+    Ниже уже собран предварительный макет фотокниги. Выберите один из 5 современных стилей, загрузите свои фото по дням — и макет автоматически станет персональным.
+  </p>
+
+  <p class="notice">
+    Ключевая особенность цифрового тревел-бука — возможность после поездки собрать реальную печатную фотокнигу.
+    Приложение превращает дни маршрута, заметки, фото-точки и хронологию поездки в готовый макет.
+  </p>
+
+  
+  <div class="ai-book-box">
+    <h3>AI‑фотокнига</h3>
+    <p>
+      Нейросеть, обученная на 500 000+ фотокниг и тревел‑альбомов, сама подбирает стиль, расстановку фотографий,
+      рамки, подписи и ритм разворотов. Макет можно сгенерировать за 3 шага.
+    </p>
+
+    <div class="ai-book-steps">
+      <div class="ai-step"><b>1. Загрузить фото</b>Добавьте фотографии по дням маршрута.</div>
+      <div class="ai-step"><b>2. Выбрать стиль</b>Luxury Travel Book, Polaroid TripBook или поденный Trip Book.</div>
+      <div class="ai-step"><b>3. Сформировать макет</b>Приложение собирает черновик фотокниги, который можно отредактировать и отправить в печать.</div>
+    </div>
+
+    <div class="mode-grid">
+      <div class="mode-card">
+        <b>TripBooks</b>
+        Цифровые страницы в стиле Polaroid: карточки, подписи, даты, маленькие заметки и ощущение живого фото‑дневника.
+      </div>
+      <div class="mode-card">
+        <b>Trip Books</b>
+        Поденный журнал путешествия: каждый день — отдельный разворот с маршрутом, фото, эмоцией дня и итоговыми заметками.
+      </div>
+    </div>
+  </div>
+
+
+  <div class="book-options">
+    <select id="bookFormat">
+      <option>Формат 20×20 см — компактная фотокнига</option>
+      <option>Формат 25×25 см — premium square</option>
+      <option>Формат A4 landscape — дорожный альбом</option>
+    </select>
+
+    <select id="bookStyle">
+      <option>Стиль: Luxury Travel Book</option>
+      <option>Стиль: Minimal White</option>
+      <option>Стиль: Cinematic Road Trip</option>
+      <option>Стиль: TripBooks Polaroid</option>
+      <option>Стиль: Trip Books — поденный журнал</option>
+    </select>
+
+    <button onclick="generatePhotoBook()">Сформировать макет фотокниги</button>
+  </div>
+
+  <div id="bookStatus" class="book-status">
+    Макет ещё не сформирован.
+  </div>
+
+  <div class="photobook-preview" id="bookPreview">
+    <div class="spread"><b>Обложка</b>Беларусь • Premium Road Trip</div>
+    <div class="spread"><b>Разворот 1</b>Москва → Браславские озёра: дорога, вода, закат.</div>
+    <div class="spread"><b>Разворот 2</b>Нарочь и Наносы: этно‑Беларусь, озеро, винокурня.</div>
+    <div class="spread"><b>Разворот 3</b>Будслав, Лида, Гродно: костёл, замок, старый город.</div>
+    <div class="spread"><b>Разворот 4</b>Мир и Несвиж: замки, парк, ночь в «Палац».</div>
+    <div class="spread"><b>Разворот 5</b>Минск, БелАЗ, Сула, Дудутки: финальные дни путешествия.</div>
+  </div>
+
+  
+  
+  <div class="style-picker" id="stylePicker">
+    <div class="style-option active" data-book-style="luxury" onclick="selectBookStyle('luxury')">
+      <div class="style-thumb magazine"></div>
+      <div><b>Luxury Magazine</b><span>Глянцевый тревел-журнал: крупное фото, золото, премиальная обложка.</span></div>
+    </div>
+    <div class="style-option" data-book-style="polaroid" onclick="selectBookStyle('polaroid')">
+      <div class="style-thumb polaroid"></div>
+      <div><b>Polaroid Memories</b><span>Живые карточки, подписи, даты и ощущение личного фото-дневника.</span></div>
+    </div>
+    <div class="style-option" data-book-style="minimal" onclick="selectBookStyle('minimal')">
+      <div class="style-thumb minimal"></div>
+      <div><b>Minimal White</b><span>Чистый светлый альбом: много воздуха, аккуратные подписи, дорогая простота.</span></div>
+    </div>
+    <div class="style-option" data-book-style="black" onclick="selectBookStyle('black')">
+      <div class="style-thumb black"></div>
+      <div><b>Cinematic Black</b><span>Киношный тёмный альбом: контраст, крупные кадры, вечерняя атмосфера.</span></div>
+    </div>
+    <div class="style-option" data-book-style="diary" onclick="selectBookStyle('diary')">
+      <div class="style-thumb diary"></div>
+      <div><b>Editorial Travel Diary</b><span>Поденный журнал: фото, заметки, эмоции дня и мягкая редакционная верстка.</span></div>
+    </div>
+  </div>
+
+<div class="print-actions">
+    <button onclick="renderPhotoBook()">Пересобрать визуальный макет</button>
+    <button onclick="window.print()">Скачать / распечатать PDF</button>
+  </div>
+
+  <div id="visualBookStatus" class="book-status">
+    Макет фотокниги собран автоматически. Можно выбрать другой стиль и пересобрать.
+  </div>
+
+  <div class="book-render" id="visualBook"></div>
+
+  <button style="margin-top:14px" onclick="savePhotoBookOrder()">Сохранить черновик заказа</button>
+  <p id="bookOrderStatus"></p>
+</section>
+
+<section class="card" id="expenses">
+<h2>Всего потрачено</h2>
+<div class="expense-row">
+<input id="expenseName" placeholder="Например: ужин">
+<input id="expenseAmount" type="number" placeholder="BYN">
+</div>
+<div class="expense-row">
+<select id="expenseCategory">
+<option>Еда</option><option>Топливо</option><option>Отель</option><option>Экскурсии</option><option>Покупки</option>
+</select>
+<button onclick="addExpense()">Добавить</button>
+</div>
+<h3 id="totalExpense">Всего: 0 BYN</h3>
+<div id="expenseList"></div>
+</section>
+</main>
+
+<nav class="bottom-nav">
+<a href="#home"><span>🏠</span>Главная</a>
+<a href="#days"><span>📍</span>Дни</a>
+<a href="#offline"><span>📴</span>Offline</a>
+<a href="#expenses"><span>💰</span>Расходы</a>
+<a href="#audiobooks-belarus"><span>🎧</span>Аудио</a>
+</nav>
+
+<script>
+
+function saveOffline(){
+ localStorage.setItem('belarusTripSaved','yes');
+ document.getElementById('offlineStatus').innerText='Маршрут сохранён. Расходы и основные travel‑данные будут доступны после перезагрузки.';
+}
+let expenses=JSON.parse(localStorage.getItem('bt_expenses')||'[]');
+function renderExpenses(){
+ const list=document.getElementById('expenseList');
+ list.innerHTML='';
+ let total=0;
+ expenses.forEach((e,idx)=>{
+   total+=Number(e.amount||0);
+   const div=document.createElement('div');
+   div.className='expense-item';
+   div.innerHTML='<div><b>'+e.name+'</b><br><small>'+e.category+'</small></div><div><b>'+e.amount+' BYN</b><br><button onclick="deleteExpense('+idx+')" style="min-height:34px;padding:6px 10px;margin-top:4px">удалить</button></div>';
+   list.appendChild(div);
+ });
+ document.getElementById('totalExpense').innerText='Всего: '+total+' BYN';
+ localStorage.setItem('bt_expenses',JSON.stringify(expenses));
+}
+function addExpense(){
+ const name=document.getElementById('expenseName').value.trim();
+ const amount=document.getElementById('expenseAmount').value;
+ const category=document.getElementById('expenseCategory').value;
+ if(!name||!amount)return;
+ expenses.push({name,amount,category});
+ document.getElementById('expenseName').value='';
+ document.getElementById('expenseAmount').value='';
+ renderExpenses();
+}
+function deleteExpense(i){expenses.splice(i,1);renderExpenses();}
+renderExpenses();
+
+function generatePhotoBook(){
+  const format = document.getElementById('bookFormat') ? document.getElementById('bookFormat').value : 'Формат 20×20 см';
+  const style = document.getElementById('bookStyle') ? document.getElementById('bookStyle').value : 'Luxury Travel Book';
+  const status = document.getElementById('bookStatus');
+  if(status){
+    status.innerText = 'Макет сформирован: ' + format + ' • ' + style + '. AI подобрал стиль, расстановку, рамки и подписи. Можно отредактировать развороты и сохранить черновик заказа.';
+  }
+  localStorage.setItem('bt_photobook_layout', JSON.stringify({format:format, style:style, createdAt:new Date().toISOString()}));
+}
+
+function savePhotoBookOrder(){
+  const order = {
+    title:'Беларусь • Premium Road Trip',
+    format:document.getElementById('bookFormat') ? document.getElementById('bookFormat').value : '',
+    style:document.getElementById('bookStyle') ? document.getElementById('bookStyle').value : '',
+    spreads:['Обложка','Браслав','Нарочь','Гродно','Мир и Несвиж','Минск'],
+    status:'draft'
+  };
+  localStorage.setItem('bt_photobook_order', JSON.stringify(order));
+  const el = document.getElementById('bookOrderStatus');
+  if(el) el.innerText='Черновик заказа фотокниги сохранён в приложении.';
+}
+
+
+
+
+
+function getStoredDayPhotosForBook(dayId){
+  try{return JSON.parse(localStorage.getItem('bt_photos_' + dayId) || '[]');}
+  catch(e){return [];}
+}
+function photoOrFallback(dayId, fallback){
+  const arr=getStoredDayPhotosForBook(dayId);
+  if(arr && arr.length && arr[0].data) return arr[0].data;
+  return fallback;
+}
+
+let selectedBookStyle = localStorage.getItem('bt_selected_book_style') || 'luxury';
+
+function selectBookStyle(style){
+  selectedBookStyle = style;
+  localStorage.setItem('bt_selected_book_style', style);
+  document.querySelectorAll('.style-option').forEach(el=>{
+    el.classList.toggle('active', el.dataset.bookStyle === style);
+  });
+  renderPhotoBook();
+}
+
+function bookPage(style, title, note, img){
+  if(style === 'luxury'){
+    return `<div class="book-page luxury-magazine" style="--book-img:url('${img}')"><div class="caption">Belarus Travel Book</div><h3>${title}</h3><p>${note}</p></div>`;
+  }
+  if(style === 'minimal'){
+    return `<div class="book-page minimal-white" style="--book-img:url('${img}')"><div class="minimal-photo"></div><div class="minimal-text"><h3>${title}</h3><p>${note}</p></div></div>`;
+  }
+  if(style === 'black'){
+    return `<div class="book-page cinematic-black" style="--book-img:url('${img}')"><div class="cinema-photo"></div><div class="cinema-title">${title}</div><div class="cinema-note">${note}</div></div>`;
+  }
+  if(style === 'diary'){
+    return `<div class="book-page editorial-diary" style="--book-img:url('${img}')"><div class="diary-top"><div class="diary-photo"></div><div class="diary-note">${note}</div></div><h3>${title}</h3><p>Маршрут, настроение дня, лучшие кадры и личные заметки.</p></div>`;
+  }
+  return '';
+}
+
+function renderPhotoBook(){
+  const root=document.getElementById('visualBook');
+  const status=document.getElementById('visualBookStatus');
+  if(!root) return;
+
+  document.querySelectorAll('.style-option').forEach(el=>{
+    el.classList.toggle('active', el.dataset.bookStyle === selectedBookStyle);
+  });
+
+  const p1=photoOrFallback('day1','https://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20the%20Braslav%20lakes.jpg');
+  const p2=photoOrFallback('day2','https://commons.wikimedia.org/wiki/Special:FilePath/SIlent%20morning%20at%20Lake%20Naroch.jpg');
+  const p3=photoOrFallback('day3','https://commons.wikimedia.org/wiki/Special:FilePath/Kalozha%20Church%201.jpg');
+  const p4=photoOrFallback('day5','https://commons.wikimedia.org/wiki/Special:FilePath/MIR%20CASTLE%20-%20BELARUS.jpg');
+  const p5=photoOrFallback('day6','https://commons.wikimedia.org/wiki/Special:FilePath/Minsk.%20Street%20in%20Trinity%20Suburb.jpg');
+
+  root.className='book-render modern';
+
+  if(selectedBookStyle === 'polaroid'){
+    root.innerHTML = `
+      <div class="book-page book-cover"><h3>Беларусь<br>Premium Road Trip</h3><p>TripBooks Polaroid Edition</p></div>
+      <div class="book-page polaroid-modern"><div class="journal-title">Polaroid Memories</div><div class="polaroid-board">
+        <div class="polaroid-card"><div style="--p:url('${p1}')"></div><span>Браслав • закат</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p2}')"></div><span>Нарочь • тишина</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p3}')"></div><span>Гродно • прогулки</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p4}')"></div><span>Мир • замок</span></div>
+      </div></div>
+      <div class="book-page polaroid-modern"><div class="polaroid-board">
+        <div class="polaroid-card"><div style="--p:url('${p5}')"></div><span>Минск • вечер</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p3}')"></div><span>Гродно • Неман</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p2}')"></div><span>Наносы • slow day</span></div>
+        <div class="polaroid-card"><div style="--p:url('${p1}')"></div><span>Дорога • Беларусь</span></div>
+      </div></div>`;
+  } else {
+    root.innerHTML =
+      bookPage(selectedBookStyle,'Беларусь Premium Road Trip','Озёра, замки, Гродно, Минск и девять дней красивой дороги.',p1) +
+      bookPage(selectedBookStyle,'День 1 — Браслав','Первый день — дорога, вода и ощущение отпуска.',p1) +
+      bookPage(selectedBookStyle,'День 2 — Нарочь','Этно‑Беларусь, озеро, винокурня и спокойный вечер.',p2) +
+      bookPage(selectedBookStyle,'Гродно и Лида','Костёл, замок, старый город и вечерняя прогулка.',p3) +
+      bookPage(selectedBookStyle,'Мир и Несвиж','Замки, парк, ночь в «Палац» и главный визуальный день.',p4) +
+      bookPage(selectedBookStyle,'Минск и окрестности','БелАЗ, Сула, Дудутки и финальные дни поездки.',p5);
+  }
+
+  if(status){
+    const names={luxury:'Luxury Magazine',polaroid:'Polaroid Memories',minimal:'Minimal White',black:'Cinematic Black',diary:'Editorial Travel Diary'};
+    status.innerText='Собран современный макет: '+(names[selectedBookStyle]||selectedBookStyle)+'. Можно выбрать другой стиль, загрузить свои фото по дням и распечатать PDF.';
+  }
+  localStorage.setItem('bt_visual_photobook_ready','yes');
+}
+
+
+function autoBuildPhotoBookOnLoad(){
+  if(document.getElementById('visualBook') && typeof renderPhotoBook === 'function'){
+    renderPhotoBook();
+  }
+}
+document.addEventListener('DOMContentLoaded', autoBuildPhotoBookOnLoad);
+setTimeout(autoBuildPhotoBookOnLoad, 300);
+
+
+function getDayPhotos(dayId){
+  try{
+    return JSON.parse(localStorage.getItem('bt_photos_' + dayId) || '[]');
+  }catch(e){
+    return [];
+  }
+}
+
+function saveDayPhotos(dayId, photos){
+  try{
+    localStorage.setItem('bt_photos_' + dayId, JSON.stringify(photos));
+  }catch(e){
+    alert('Память телефона заполнена. Удалите часть фото или загрузите фото меньшего размера.');
+  }
+}
+
+function compressImage(file, callback){
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const img = new Image();
+    img.onload = function(){
+      const max = 1200;
+      let w = img.width;
+      let h = img.height;
+      if(w > h && w > max){ h = Math.round(h * max / w); w = max; }
+      if(h >= w && h > max){ w = Math.round(w * max / h); h = max; }
+
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      callback(canvas.toDataURL('image/jpeg', 0.78));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleDayPhotos(event, dayId){
+  const files = Array.from(event.target.files || []);
+  if(!files.length) return;
+
+  let existing = getDayPhotos(dayId);
+  const maxPhotos = 5;
+  const remaining = maxPhotos - existing.length;
+
+  if(remaining <= 0){
+    alert('На один день можно сохранить до 5 фото. Удалите лишние фото, чтобы добавить новые.');
+    event.target.value = '';
+    return;
+  }
+
+  const selected = files.slice(0, remaining);
+  let loaded = 0;
+
+  selected.forEach(file => {
+    compressImage(file, function(dataUrl){
+      existing.push({
+        name:file.name,
+        data:dataUrl,
+        createdAt:new Date().toISOString()
+      });
+      saveDayPhotos(dayId, existing);
+      loaded++;
+      if(loaded === selected.length){
+        renderDayPhotos(dayId);
+      }
+    });
+  });
+
+  event.target.value = '';
+}
+
+function renderDayPhotos(dayId){
+  const gallery = document.getElementById('gallery-' + dayId);
+  if(!gallery) return;
+
+  const photos = getDayPhotos(dayId);
+  gallery.innerHTML = '';
+
+  if(!photos.length){
+    gallery.innerHTML = '<div class="photo-hint">Пока фото не загружены.</div>';
+    return;
+  }
+
+  photos.forEach((photo, index) => {
+    const item = document.createElement('div');
+    item.className = 'user-photo';
+    item.innerHTML = '<img loading="lazy" src="' + photo.data + '" alt="Фото дня"><button onclick="deleteDayPhoto(\'' + dayId + '\',' + index + ')">×</button>';
+    gallery.appendChild(item);
+  });
+}
+
+function deleteDayPhoto(dayId, index){
+  const photos = getDayPhotos(dayId);
+  photos.splice(index, 1);
+  saveDayPhotos(dayId, photos);
+  renderDayPhotos(dayId);
+}
+
+function renderAllDayPhotos(){
+  document.querySelectorAll('[id^="gallery-day"]').forEach(gallery => {
+    const dayId = gallery.id.replace('gallery-', '');
+    renderDayPhotos(dayId);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderAllDayPhotos);
+setTimeout(renderAllDayPhotos, 300);
+renderAllDayPhotos();
+
+
+</script>
+</body>
+</html>
