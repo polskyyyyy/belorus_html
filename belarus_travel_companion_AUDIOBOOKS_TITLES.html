@@ -459,7 +459,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day1')">
           </div>
@@ -490,7 +490,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day2')">
           </div>
@@ -521,7 +521,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day3')">
           </div>
@@ -552,7 +552,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day4')">
           </div>
@@ -583,7 +583,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day5')">
           </div>
@@ -614,7 +614,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day6')">
           </div>
@@ -645,7 +645,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day7')">
           </div>
@@ -676,7 +676,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day8')">
           </div>
@@ -707,7 +707,7 @@ input,select{width:100%;padding:14px;border-radius:14px;border:1px solid rgba(47
       <div class="day-body">
         <div class="my-photos">
           <h3>Мои фото дня</h3>
-          <div class="photo-hint">Загрузите свои фото этого дня. До 5 фото на день сохраняются в телефоне.</div>
+          <div class="photo-hint">Загрузите свои фото этого дня. До 12 фото на день сохраняются локально в телефоне через IndexedDB.</div>
           <div class="photo-upload-row">
             <input type="file" accept="image/*" multiple onchange="handleDayPhotos(event,'day9')">
           </div>
@@ -1067,105 +1067,138 @@ document.addEventListener('DOMContentLoaded', autoBuildPhotoBookOnLoad);
 setTimeout(autoBuildPhotoBookOnLoad, 300);
 
 
-function getDayPhotos(dayId){
-  try{
-    return JSON.parse(localStorage.getItem('bt_photos_' + dayId) || '[]');
-  }catch(e){
-    return [];
-  }
+
+
+
+
+/* === IndexedDB local photo storage === */
+const BT_PHOTO_DB = 'BelarusTravelPhotosDB';
+const BT_PHOTO_STORE = 'dayPhotos';
+
+function openPhotoDB(){
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(BT_PHOTO_DB, 1);
+    request.onupgradeneeded = function(event){
+      const db = event.target.result;
+      if(!db.objectStoreNames.contains(BT_PHOTO_STORE)){
+        const store = db.createObjectStore(BT_PHOTO_STORE, {keyPath:'id', autoIncrement:true});
+        store.createIndex('dayId', 'dayId', {unique:false});
+        store.createIndex('createdAt', 'createdAt', {unique:false});
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
 }
 
-function saveDayPhotos(dayId, photos){
-  try{
-    localStorage.setItem('bt_photos_' + dayId, JSON.stringify(photos));
-  }catch(e){
-    alert('Память телефона заполнена. Удалите часть фото или загрузите фото меньшего размера.');
-  }
-}
-
-function compressImage(file, callback){
+function compressImageToBlob(file, callback){
   const reader = new FileReader();
   reader.onload = function(e){
     const img = new Image();
     img.onload = function(){
-      const max = 1200;
+      const max = 1600;
       let w = img.width;
       let h = img.height;
       if(w > h && w > max){ h = Math.round(h * max / w); w = max; }
       if(h >= w && h > max){ w = Math.round(w * max / h); h = max; }
-
       const canvas = document.createElement('canvas');
       canvas.width = w;
       canvas.height = h;
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0, w, h);
-      callback(canvas.toDataURL('image/jpeg', 0.78));
+      canvas.toBlob(blob => callback(blob), 'image/jpeg', 0.82);
     };
     img.src = e.target.result;
   };
   reader.readAsDataURL(file);
 }
 
-function handleDayPhotos(event, dayId){
+async function getDayPhotosIndexed(dayId){
+  const db = await openPhotoDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(BT_PHOTO_STORE, 'readonly');
+    const store = tx.objectStore(BT_PHOTO_STORE);
+    const index = store.index('dayId');
+    const request = index.getAll(dayId);
+    request.onsuccess = () => resolve((request.result || []).sort((a,b)=>new Date(a.createdAt)-new Date(b.createdAt)));
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function saveDayPhotoIndexed(dayId, fileName, blob){
+  const db = await openPhotoDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(BT_PHOTO_STORE, 'readwrite');
+    const store = tx.objectStore(BT_PHOTO_STORE);
+    const request = store.add({dayId, fileName, blob, createdAt:new Date().toISOString()});
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function deleteDayPhoto(dayId, id){
+  const db = await openPhotoDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(BT_PHOTO_STORE, 'readwrite');
+    const store = tx.objectStore(BT_PHOTO_STORE);
+    const request = store.delete(Number(id));
+    request.onsuccess = async () => { await renderDayPhotos(dayId); resolve(); };
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function handleDayPhotos(event, dayId){
   const files = Array.from(event.target.files || []);
   if(!files.length) return;
 
-  let existing = getDayPhotos(dayId);
-  const maxPhotos = 5;
+  const existing = await getDayPhotosIndexed(dayId);
+  const maxPhotos = 12;
   const remaining = maxPhotos - existing.length;
 
   if(remaining <= 0){
-    alert('На один день можно сохранить до 5 фото. Удалите лишние фото, чтобы добавить новые.');
+    alert('На один день можно сохранить до 12 фото. Удалите лишние фото, чтобы добавить новые.');
     event.target.value = '';
     return;
   }
 
   const selected = files.slice(0, remaining);
-  let loaded = 0;
 
-  selected.forEach(file => {
-    compressImage(file, function(dataUrl){
-      existing.push({
-        name:file.name,
-        data:dataUrl,
-        createdAt:new Date().toISOString()
+  for(const file of selected){
+    await new Promise(resolve => {
+      compressImageToBlob(file, async function(blob){
+        try{
+          await saveDayPhotoIndexed(dayId, file.name, blob);
+        }catch(e){
+          alert('Не удалось сохранить фото. Возможно, память браузера заполнена.');
+        }
+        resolve();
       });
-      saveDayPhotos(dayId, existing);
-      loaded++;
-      if(loaded === selected.length){
-        renderDayPhotos(dayId);
-      }
     });
-  });
+  }
 
   event.target.value = '';
+  await renderDayPhotos(dayId);
 }
 
-function renderDayPhotos(dayId){
+async function renderDayPhotos(dayId){
   const gallery = document.getElementById('gallery-' + dayId);
   if(!gallery) return;
 
-  const photos = getDayPhotos(dayId);
+  const photos = await getDayPhotosIndexed(dayId);
   gallery.innerHTML = '';
 
   if(!photos.length){
-    gallery.innerHTML = '<div class="photo-hint">Пока фото не загружены.</div>';
+    gallery.innerHTML = '<div class="photo-hint">Пока фото не загружены. Фото сохраняются локально в телефоне через IndexedDB.</div>';
     return;
   }
 
-  photos.forEach((photo, index) => {
+  photos.forEach(photo => {
+    const url = URL.createObjectURL(photo.blob);
     const item = document.createElement('div');
     item.className = 'user-photo';
-    item.innerHTML = '<img loading="lazy" src="' + photo.data + '" alt="Фото дня"><button onclick="deleteDayPhoto(\'' + dayId + '\',' + index + ')">×</button>';
+    item.innerHTML = '<img loading="lazy" src="' + url + '" alt="Фото дня"><button onclick="deleteDayPhoto(\'' + dayId + '\',' + photo.id + ')">×</button>';
     gallery.appendChild(item);
   });
-}
-
-function deleteDayPhoto(dayId, index){
-  const photos = getDayPhotos(dayId);
-  photos.splice(index, 1);
-  saveDayPhotos(dayId, photos);
-  renderDayPhotos(dayId);
 }
 
 function renderAllDayPhotos(){
@@ -1175,10 +1208,15 @@ function renderAllDayPhotos(){
   });
 }
 
+function getStoredDayPhotosForBook(dayId){
+  const img = document.querySelector('#gallery-' + dayId + ' img');
+  if(img && img.src) return [{data: img.src}];
+  return [];
+}
+
 document.addEventListener('DOMContentLoaded', renderAllDayPhotos);
 setTimeout(renderAllDayPhotos, 300);
 renderAllDayPhotos();
-
 
 </script>
 </body>
