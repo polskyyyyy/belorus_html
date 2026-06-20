@@ -1156,9 +1156,6 @@ const data={
 10:['03.08','Минск ♥ Жодино','Ранний выезд на экскурсию БЕЛАЗ в Жодино и возвращение в Минск на ночёвку.','Даже индустриальные места могут стать частью большого путешествия.'],
 11:['04.08','Минск ♥ Москва','Возвращение домой с самыми яркими впечатлениями и новыми историями.','Путешествия заканчиваются, а воспоминания остаются.']
 };
-
-
-
 function wd(date){const p=date.split('.');const d=new Date(2026,Number(p[1])-1,Number(p[0]));return weekdays[d.getDay()]||'';}
 document.addEventListener('DOMContentLoaded',function(){
  document.querySelectorAll('.day-card').forEach(function(card,i){
