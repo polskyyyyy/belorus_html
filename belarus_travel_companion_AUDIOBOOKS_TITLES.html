@@ -1544,26 +1544,26 @@ background-position:center;
 
   <h2 class="album-section-title">Наш экипаж</h2>
   <p class="album-section-lead">Четыре участника поездки — отдельная душевная страница перед дневниками маршрута.</p>
-  <div class="album-crew-grid"><article class="album-crew-card" data-crew="sergey">
-  <div class="album-crew-photo" id="album-crew-photo-sergey">Фото участника</div>
-  <h3>Сергей</h3>
-  <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('sergey', this.files && this.files[0]); this.value='';"></label>
-  <textarea id="album-crew-note-sergey" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
-</article><article class="album-crew-card" data-crew="natalia">
+  <div class="album-crew-grid"><article class="album-crew-card" data-crew="natalia">
   <div class="album-crew-photo" id="album-crew-photo-natalia">Фото участника</div>
   <h3>Наталья</h3>
   <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('natalia', this.files && this.files[0]); this.value='';"></label>
   <textarea id="album-crew-note-natalia" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
-</article><article class="album-crew-card" data-crew="gennady">
-  <div class="album-crew-photo" id="album-crew-photo-gennady">Фото участника</div>
-  <h3>Геннадий</h3>
-  <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('gennady', this.files && this.files[0]); this.value='';"></label>
-  <textarea id="album-crew-note-gennady" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
+</article><article class="album-crew-card" data-crew="sergey">
+  <div class="album-crew-photo" id="album-crew-photo-sergey">Фото участника</div>
+  <h3>Сергей</h3>
+  <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('sergey', this.files && this.files[0]); this.value='';"></label>
+  <textarea id="album-crew-note-sergey" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
 </article><article class="album-crew-card" data-crew="olga">
   <div class="album-crew-photo" id="album-crew-photo-olga">Фото участника</div>
   <h3>Ольга</h3>
   <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('olga', this.files && this.files[0]); this.value='';"></label>
   <textarea id="album-crew-note-olga" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
+</article><article class="album-crew-card" data-crew="gennady">
+  <div class="album-crew-photo" id="album-crew-photo-gennady">Фото участника</div>
+  <h3>Геннадий</h3>
+  <label class="album-upload-label">Добавить фото<input type="file" accept="image/*" onchange="albumAddCrewPhoto('gennady', this.files && this.files[0]); this.value='';"></label>
+  <textarea id="album-crew-note-gennady" placeholder="Любимый момент поездки, настроение или короткая подпись..."></textarea>
 </article></div>
 
   <h2 class="album-section-title">Дневник по дням</h2>
@@ -1740,14 +1740,19 @@ background-position:center;
     <div class="album-stage"><button class="album-close" onclick="albumCloseSlideshow()">Закрыть</button><button class="album-nav-btn album-prev" onclick="albumSlideMove(-1)">‹</button><img id="album-slide-img" alt="Фото путешествия"><button class="album-nav-btn album-next" onclick="albumSlideMove(1)">›</button><div class="album-caption" id="album-slide-caption"></div></div>
   </div>
 </section>
-</section><section class="section" id="useful"><h2 class="section-title">Полезные ссылки</h2><p class="lead">Только сервисные ссылки, которые нужны на протяжении всей поездки: карты, погода, валюта и экскурсии.</p><div class="card"><h3>Быстрый доступ</h3><div class="links"><a class="linkBtn" href="https://belarus.travel/" rel="noopener" target="_blank">🇧🇾 Беларусь Travel</a><a class="linkBtn" href="https://pogoda.by/" rel="noopener" target="_blank">🌦️ Погода Беларуси</a><a class="linkBtn" href="https://www.nbrb.by/statistics/rates/ratesdaily" rel="noopener" target="_blank">💱 Курсы валют BYN/RUB</a><a class="linkBtn" href="https://organicmaps.app/" rel="noopener" target="_blank">🗺️ Organic Maps</a><a class="linkBtn" href="https://maps.me/" rel="noopener" target="_blank">📍 MAPS.ME</a><a class="linkBtn" href="https://yandex.ru/maps/" rel="noopener" target="_blank">🚗 Яндекс Карты</a><a class="linkBtn" href="https://experience.tripster.ru/experience/Belarus/" rel="noopener" target="_blank">🎟️ Tripster Беларусь</a><a class="linkBtn" href="https://www.minsktrans.by/lookout_yard/Home/Index/minsk#/routes/tram" rel="noopener" target="_blank">🚋 Минсктранс — маршруты</a><a class="linkBtn" href="https://citydog.io/" rel="noopener" target="_blank">🐕 CityDog — Минск</a></div></div><div class="card useful-notes-card"><h3>📝 Мои заметки</h3><p class="lead">Сюда можно записывать важное по поездке: адреса, телефоны, идеи, покупки, напоминания. Сохраняется на этом устройстве.</p><textarea id="useful-notes" placeholder="Напишите заметку..."></textarea><div class="expense-actions"><button onclick="saveUsefulNotes()">Сохранить</button><button onclick="clearUsefulNotes()">Очистить</button><span class="important-save-status" id="useful-notes-status"></span></div></div></section><section class="section" id="bookings"><h2 class="section-title">Брони</h2><div class="card"><p class="lead">Быстрый раздел для броней. Основные брони также находятся внутри каждого дня маршрута.</p><button data-target="days">Перейти к дням</button></div></section><section class="section" id="map"><h2 class="section-title">Интерактивная карта маршрута</h2><p class="lead">Все основные точки поездки собраны в одном месте: открыть маршрут, посмотреть город, найти парковки, заправки и сервис по дороге.</p><div class="card"><div class="route-map-box"><iframe allowfullscreen="true" src="https://yandex.ru/map-widget/v1/?ll=26.6033%2C53.9023&amp;z=6&amp;mode=search&amp;text=Москва%20Смоленск%20Нарочь%20Лида%20Гродно%20Коссово%20Мир%20Несвиж%20Сула%20Минск%20Жодино"></iframe></div><div class="route-map-actions"><a class="linkBtn" href="https://yandex.ru/maps/?rtext=55.7558%2C37.6173~54.7826%2C32.0453~54.8400%2C26.7000~53.8874%2C25.3029~53.6694%2C23.8131~52.7580%2C25.1550~53.4515%2C26.4731~53.2186%2C26.6726~53.8450%2C27.0890~53.9023%2C27.5619~54.0985%2C28.3334&amp;rtt=auto" rel="noopener" target="_blank">Открыть весь маршрут</a><a class="linkBtn" href="https://yandex.ru/maps/?text=заправки%20по%20маршруту%20Москва%20Смоленск%20Минск" rel="noopener" target="_blank">Заправки</a><a class="linkBtn" href="https://yandex.ru/maps/?text=парковки%20Гродно%20Мир%20Несвиж%20Минск" rel="noopener" target="_blank">Парковки</a><a class="linkBtn" href="https://yandex.ru/maps/?text=Volvo%20service%20Минск" rel="noopener" target="_blank">Volvo Service</a></div></div><div class="card"><h3>Точки маршрута</h3><div class="grid"><div class="mini"><h3>Москва</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Москва" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Смоленск</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Смоленск" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Нарочь / Наносы</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Наносы%20Нарочь" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Лида</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Лида%20Беларусь" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Гродно</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Гродно" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Коссово</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Дворец%20Пусловских%20Коссово" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Мир</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Мирский%20замок" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Несвиж</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Несвижский%20замок" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Сула</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Парк%20истории%20Сула" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Минск</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Минск" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Жодино / БЕЛАЗ</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=БЕЛАЗ%20Жодино" rel="noopener" target="_blank">Открыть</a></div></div></div></section><section class="section" id="expenses"><h2 class="section-title">Расходы</h2><p class="lead">Удобный журнал трат: добавляете каждую покупку отдельной строкой, а итог считается автоматически по категориям.</p><div class="card expense-summary-card"><div class="expense-total"><span>Общий итог</span><b id="expense-grand-total">0 ₽</b></div><div class="expense-summary-grid"><div class="mini"><h3>🏨 Проживание</h3><b id="sum-stay">0 ₽</b></div><div class="mini"><h3>⛽ Бензин</h3><b id="sum-fuel">0 ₽</b></div><div class="mini"><h3>🍽 Еда</h3><b id="sum-food">0 ₽</b></div><div class="mini"><h3>🎟 Экскурсии</h3><b id="sum-tours">0 ₽</b></div><div class="mini"><h3>🛍 Другое</h3><b id="sum-other">0 ₽</b></div></div></div><div class="card"><h3>Добавить расход</h3><div class="expense-form"><input id="expense-title" placeholder="Что оплатили? Например: отель в Суле"/><select id="expense-category"><option value="stay">Проживание</option><option value="fuel">Бензин</option><option value="food">Еда</option><option value="tours">Экскурсии</option><option value="other">Другое</option></select><input id="expense-amount" min="0" placeholder="Сумма" step="1" type="number"/><select id="expense-currency"><option value="RUB">₽</option><option value="BYN">BYN</option></select><button onclick="addExpenseItem()">Добавить</button></div><p class="rate-note">BYN оставлен отдельной валютой в названии строки. Для общего итога вводите суммы в одной валюте.</p></div><div class="card"><h3>Список расходов</h3><div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>Расход</th><th>Категория</th><th>Сумма</th><th></th></tr></thead><tbody id="expense-list"></tbody></table></div><div class="expense-actions"><button onclick="downloadExpensesCsv()">Скачать CSV</button><button onclick="clearAllExpenses()">Очистить всё</button></div></div></section><nav class="bottom-nav"><button class="active" onclick="showSection('home',this)">Главная</button><button onclick="showSection('days',this)">Дни</button><button onclick="showSection('useful')">Полезное</button><button onclick="showSection('booking',this)">Брони</button><button onclick="showSection('audio',this)">Аудио</button><button data-target="expenses">Расходы</button></nav><script>
+</section><section class="section" id="useful"><h2 class="section-title">Полезные ссылки</h2><p class="lead">Только сервисные ссылки, которые нужны на протяжении всей поездки: карты, погода, валюта и экскурсии.</p><div class="card"><h3>Быстрый доступ</h3><div class="links"><a class="linkBtn" href="https://belarus.travel/" rel="noopener" target="_blank">🇧🇾 Беларусь Travel</a><a class="linkBtn" href="https://pogoda.by/" rel="noopener" target="_blank">🌦️ Погода Беларуси</a><a class="linkBtn" href="https://www.nbrb.by/statistics/rates/ratesdaily" rel="noopener" target="_blank">💱 Курсы валют BYN/RUB</a><a class="linkBtn" href="https://organicmaps.app/" rel="noopener" target="_blank">🗺️ Organic Maps</a><a class="linkBtn" href="https://maps.me/" rel="noopener" target="_blank">📍 MAPS.ME</a><a class="linkBtn" href="https://yandex.ru/maps/" rel="noopener" target="_blank">🚗 Яндекс Карты</a><a class="linkBtn" href="https://experience.tripster.ru/experience/Belarus/" rel="noopener" target="_blank">🎟️ Tripster Беларусь</a><a class="linkBtn" href="https://www.minsktrans.by/lookout_yard/Home/Index/minsk#/routes/tram" rel="noopener" target="_blank">🚋 Минсктранс — маршруты</a><a class="linkBtn" href="https://citydog.io/" rel="noopener" target="_blank">🐕 CityDog — Минск</a></div></div><div class="card useful-notes-card"><h3>📝 Мои заметки</h3><p class="lead">Сюда можно записывать важное по поездке: адреса, телефоны, идеи, покупки, напоминания. Сохраняется на этом устройстве.</p><textarea id="useful-notes" placeholder="Напишите заметку..."></textarea><div class="expense-actions"><button onclick="saveUsefulNotes()">Сохранить</button><button onclick="clearUsefulNotes()">Очистить</button><span class="important-save-status" id="useful-notes-status"></span></div></div></section><section class="section" id="bookings"><h2 class="section-title">Брони</h2><div class="card"><p class="lead">Быстрый раздел для броней. Основные брони также находятся внутри каждого дня маршрута.</p><button data-target="days">Перейти к дням</button></div></section><section class="section" id="map"><h2 class="section-title">Интерактивная карта маршрута</h2><p class="lead">Все основные точки поездки собраны в одном месте: открыть маршрут, посмотреть город, найти парковки, заправки и сервис по дороге.</p><div class="card"><div class="route-map-box"><iframe allowfullscreen="true" src="https://yandex.ru/map-widget/v1/?ll=26.6033%2C53.9023&amp;z=6&amp;mode=search&amp;text=Москва%20Смоленск%20Нарочь%20Лида%20Гродно%20Коссово%20Мир%20Несвиж%20Сула%20Минск%20Жодино"></iframe></div><div class="route-map-actions"><a class="linkBtn" href="https://yandex.ru/maps/?rtext=55.7558%2C37.6173~54.7826%2C32.0453~54.8400%2C26.7000~53.8874%2C25.3029~53.6694%2C23.8131~52.7580%2C25.1550~53.4515%2C26.4731~53.2186%2C26.6726~53.8450%2C27.0890~53.9023%2C27.5619~54.0985%2C28.3334&amp;rtt=auto" rel="noopener" target="_blank">Открыть весь маршрут</a><a class="linkBtn" href="https://yandex.ru/maps/?text=заправки%20по%20маршруту%20Москва%20Смоленск%20Минск" rel="noopener" target="_blank">Заправки</a><a class="linkBtn" href="https://yandex.ru/maps/?text=парковки%20Гродно%20Мир%20Несвиж%20Минск" rel="noopener" target="_blank">Парковки</a><a class="linkBtn" href="https://yandex.ru/maps/?text=Volvo%20service%20Минск" rel="noopener" target="_blank">Volvo Service</a></div></div><div class="card"><h3>Точки маршрута</h3><div class="grid"><div class="mini"><h3>Москва</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Москва" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Смоленск</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Смоленск" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Нарочь / Наносы</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Наносы%20Нарочь" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Лида</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Лида%20Беларусь" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Гродно</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Гродно" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Коссово</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Дворец%20Пусловских%20Коссово" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Мир</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Мирский%20замок" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Несвиж</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Несвижский%20замок" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Сула</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Парк%20истории%20Сула" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Минск</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=Минск" rel="noopener" target="_blank">Открыть</a></div><div class="mini"><h3>Жодино / БЕЛАЗ</h3><a class="linkBtn" href="https://yandex.ru/maps/?text=БЕЛАЗ%20Жодино" rel="noopener" target="_blank">Открыть</a></div></div></div></section><section class="section" id="expenses"><h2 class="section-title">Расходы</h2><p class="lead">Удобный журнал трат: добавляете каждую покупку отдельной строкой, а итог считается автоматически по категориям.</p><div class="card expense-summary-card"><div class="expense-total"><span>Общий итог</span><b id="expense-grand-total">0 ₽</b></div><div class="expense-summary-grid"><div class="mini"><h3>🏨 Проживание</h3><b id="sum-stay">0 ₽</b></div><div class="mini"><h3>⛽ Бензин</h3><b id="sum-fuel">0 ₽</b></div><div class="mini"><h3>🍽 Еда</h3><b id="sum-food">0 ₽</b></div><div class="mini"><h3>🎟 Экскурсии</h3><b id="sum-tours">0 ₽</b></div><div class="mini"><h3>🛍 Другое</h3><b id="sum-other">0 ₽</b></div></div></div><div class="card"><h3>Добавить расход</h3><div class="expense-form"><input id="expense-title" placeholder="Что оплатили? Например: отель в Суле"/><select id="expense-category"><option value="stay">Проживание</option><option value="fuel">Бензин</option><option value="food">Еда</option><option value="tours">Экскурсии</option><option value="other">Другое</option></select><input id="expense-amount" min="0" placeholder="Сумма" step="1" type="number"/><select id="expense-currency"><option value="RUB">₽</option><option value="BYN">BYN</option></select><button onclick="addExpenseItem()">Добавить</button></div><p class="rate-note">BYN оставлен отдельной валютой в названии строки. Для общего итога вводите суммы в одной валюте.</p></div><div class="card"><h3>Список расходов</h3><div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>Расход</th><th>Категория</th><th>Сумма</th><th></th></tr></thead><tbody id="expense-list"></tbody></table></div><div class="expense-actions"><button onclick="saveExpenses()">Сохранить расходы</button><button onclick="downloadExpensesCsv()">Скачать CSV</button><button onclick="clearAllExpenses()">Очистить всё</button><span class="rate-note" id="expense-save-status">Расходы сохраняются на этом устройстве.</span></div></div></section><nav class="bottom-nav"><button class="active" onclick="showSection('home',this)">Главная</button><button onclick="showSection('days',this)">Дни</button><button onclick="showSection('useful')">Полезное</button><button onclick="showSection('booking',this)">Брони</button><button onclick="showSection('audio',this)">Аудио</button><button data-target="expenses">Расходы</button></nav><script>
 function showSection(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.bottom-nav button').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('.inner-tabs button').forEach(b=>b.addEventListener('click',()=>{let box=b.closest('.day-card'); box.querySelectorAll('.inner-tabs button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); box.querySelectorAll('.inner-panel').forEach(p=>p.classList.remove('active')); box.querySelector('[data-panel="'+b.dataset.inner+'"]').classList.add('active')}));
 function savePhotos(day,files){let arr=JSON.parse(localStorage.getItem('photos-'+day)||'[]'); [...files].slice(0,12-arr.length).forEach(f=>{let r=new FileReader(); r.onload=e=>{arr.push(e.target.result); localStorage.setItem('photos-'+day,JSON.stringify(arr.slice(0,12))); renderPhotos(day)}; r.readAsDataURL(f)})}
 function renderPhotos(day){let arr=JSON.parse(localStorage.getItem('photos-'+day)||'[]'); let el=document.getElementById('photos-'+day); if(el) el.innerHTML=arr.map(src=>'<img src="'+src+'">').join('')}
 for(let i=1;i<=10;i++) renderPhotos(i);
-function addExpense(){let name=document.getElementById('expName').value||'Расход'; let sum=Number(document.getElementById('expSum').value||0); let arr=JSON.parse(localStorage.getItem('expenses')||'[]'); arr.push({name,sum}); localStorage.setItem('expenses',JSON.stringify(arr)); document.getElementById('expName').value='';document.getElementById('expSum').value=''; renderExpenses()}
-function renderExpenses(){let arr=JSON.parse(localStorage.getItem('expenses')||'[]'); document.getElementById('expenseList').innerHTML=arr.map(x=>'<p>'+x.name+': '+x.sum+'</p>').join(''); document.getElementById('expenseTotal').textContent=arr.reduce((a,b)=>a+Number(b.sum||0),0)} renderExpenses();
+
+function addExpense(){return addExpenseItem && addExpenseItem();}
+function renderExpenses(){
+  if(typeof renderExpenseItems === 'function'){ renderExpenseItems(); }
+}
+document.addEventListener('DOMContentLoaded', renderExpenses);
+
 function saveCloudLink(inputId,storageKey,openId){let v=document.getElementById(inputId).value.trim(); if(!v){alert('Вставьте ссылку из Mail Cloud'); return} localStorage.setItem(storageKey,v); renderCloudLink(storageKey,openId)}
 function renderCloudLink(storageKey,openId){let v=localStorage.getItem(storageKey)||''; let a=document.getElementById(openId); if(a){a.href=v||'#'; a.style.display=v?'inline-flex':'none'}}
 renderCloudLink('day1ExcSaved','day1ExcOpen'); renderCloudLink('day1HotelSaved','day1HotelOpen'); renderCloudLink('day1RestaurantSaved','day1RestaurantOpen'); renderCloudLink('day5KossovoExcSaved','day5KossovoExcOpen'); renderCloudLink('day5MirExcSaved','day5MirExcOpen'); renderCloudLink('day5BookingMirExcSaved','day5BookingMirExcOpen'); renderCloudLink('day5BookingKossovoExcSaved','day5BookingKossovoExcOpen'); renderCloudLink('day8StayBooking1Saved','day8StayBooking1Open'); renderCloudLink('day8StayBooking2Saved','day8StayBooking2Open');
@@ -2175,7 +2180,7 @@ function openDay(dayId){
   function blobToDataURL(blob){return new Promise((resolve,reject)=>{const r=new FileReader(); r.onload=()=>resolve(r.result); r.onerror=reject; r.readAsDataURL(blob);});}
   async function toData(src){try{const blob=await fetch(src).then(r=>r.blob()); return await blobToDataURL(blob);}catch(e){return '';}}
   window.albumExportHtml=async function(){
-    const crewKeys=['sergey','natalia','gennady','olga'], crewNames={sergey:'Сергей',natalia:'Наталья',gennady:'Геннадий',olga:'Ольга'};
+    const crewKeys=['natalia','sergey','olga','gennady'], crewNames={natalia:'Наталья',sergey:'Сергей',olga:'Ольга',gennady:'Геннадий'};
     const crewParts=[]; for(const k of crewKeys){crewParts.push({name:crewNames[k],img:crew[k]?await toData(crew[k].src):'',note:($('album-crew-note-'+k)?.value||'').trim()});}
     const days=[]; for(let d=1; d<=DAYS; d++){const imgs=[]; for(const it of (album[d]||[])){const data=await toData(it.src); if(data)imgs.push(data);} days.push({d,title:dayTitles[d],note:($('album-caption-'+d)?.value||'').trim(),fav:fav[d],imgs});}
     const finalImg=finalPhoto?await toData(finalPhoto.src):''; const finalNote=($('album-final-note')?.value||'').trim();
@@ -2189,6 +2194,138 @@ function openDay(dayId){
   document.addEventListener('keydown',function(e){const modal=$('album-modal'); if(!modal||!modal.classList.contains('active'))return; if(e.key==='Escape')albumCloseSlideshow(); if(e.key==='ArrowLeft')albumSlideMove(-1); if(e.key==='ArrowRight')albumSlideMove(1);});
   document.addEventListener('DOMContentLoaded',function(){for(let d=1;d<=DAYS;d++)albumRenderDay(d);renderBest();});
 })();
+
+/* Belarus 2026 expenses: persistent trip journal */
+(function(){
+  const STORAGE_KEY = 'belarus2026_expenses_v2';
+  const LEGACY_KEY = 'expenses';
+  const CAT_NAMES = {stay:'Проживание', fuel:'Бензин', food:'Еда', tours:'Экскурсии', other:'Другое'};
+  const CAT_SUM_IDS = {stay:'sum-stay', fuel:'sum-fuel', food:'sum-food', tours:'sum-tours', other:'sum-other'};
+
+  function readExpenses(){
+    try{
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if(saved) return JSON.parse(saved) || [];
+      const legacy = localStorage.getItem(LEGACY_KEY);
+      if(legacy){
+        const arr = (JSON.parse(legacy)||[]).map(function(x){
+          return {id:Date.now()+Math.random(), title:x.name||'Расход', category:'other', amount:Number(x.sum||0), currency:'RUB'};
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+        return arr;
+      }
+    }catch(e){}
+    return [];
+  }
+  function writeExpenses(arr){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr||[]));
+  }
+  function moneyText(amount, currency){
+    amount = Number(amount||0);
+    if(currency === 'BYN') return amount.toLocaleString('ru-RU') + ' BYN';
+    return amount.toLocaleString('ru-RU') + ' ₽';
+  }
+  function groupedMoneyText(items){
+    const sums = {};
+    (items||[]).forEach(function(x){
+      const c = x.currency || 'RUB';
+      sums[c] = (sums[c]||0) + Number(x.amount||0);
+    });
+    const parts = Object.keys(sums).filter(function(k){return sums[k] > 0;}).map(function(k){return moneyText(sums[k], k);});
+    return parts.length ? parts.join(' + ') : '0 ₽';
+  }
+  function setText(id, value){
+    const el = document.getElementById(id);
+    if(el) el.textContent = value;
+  }
+  function escapeHtml(s){
+    return String(s||'').replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];});
+  }
+  function setStatus(text){
+    const el = document.getElementById('expense-save-status');
+    if(el) el.textContent = text;
+  }
+
+  window.addExpenseItem = function(){
+    const titleEl = document.getElementById('expense-title');
+    const categoryEl = document.getElementById('expense-category');
+    const amountEl = document.getElementById('expense-amount');
+    const currencyEl = document.getElementById('expense-currency');
+    if(!titleEl || !categoryEl || !amountEl || !currencyEl) return;
+
+    const title = (titleEl.value || '').trim() || 'Расход';
+    const category = categoryEl.value || 'other';
+    const amount = Number(amountEl.value || 0);
+    const currency = currencyEl.value || 'RUB';
+
+    if(!amount || amount <= 0){
+      alert('Введите сумму расхода.');
+      return;
+    }
+
+    const arr = readExpenses();
+    arr.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2), title:title, category:category, amount:amount, currency:currency});
+    writeExpenses(arr);
+
+    titleEl.value = '';
+    amountEl.value = '';
+    renderExpenseItems();
+    setStatus('Сохранено на этом устройстве.');
+  };
+
+  window.renderExpenseItems = function(){
+    const arr = readExpenses();
+    const tbody = document.getElementById('expense-list');
+    if(tbody){
+      tbody.innerHTML = arr.length ? arr.map(function(x){
+        return '<tr><td><b>'+escapeHtml(x.title)+'</b></td><td>'+escapeHtml(CAT_NAMES[x.category]||'Другое')+'</td><td>'+escapeHtml(moneyText(x.amount,x.currency))+'</td><td><button onclick="deleteExpenseItem(\''+escapeHtml(x.id)+'\')">Удалить</button></td></tr>';
+      }).join('') : '<tr><td colspan="4">Пока расходов нет. Добавьте первую строку и нажмите «Сохранить расходы».</td></tr>';
+    }
+    Object.keys(CAT_SUM_IDS).forEach(function(cat){
+      setText(CAT_SUM_IDS[cat], groupedMoneyText(arr.filter(function(x){return x.category === cat;})));
+    });
+    setText('expense-grand-total', groupedMoneyText(arr));
+  };
+
+  window.deleteExpenseItem = function(id){
+    const arr = readExpenses().filter(function(x){return String(x.id) !== String(id);});
+    writeExpenses(arr);
+    renderExpenseItems();
+    setStatus('Изменения сохранены.');
+  };
+
+  window.saveExpenses = function(){
+    const arr = readExpenses();
+    writeExpenses(arr);
+    renderExpenseItems();
+    setStatus('Расходы сохранены и останутся в этом браузере на протяжении поездки.');
+  };
+
+  window.clearAllExpenses = function(){
+    if(!confirm('Очистить все расходы на этом устройстве?')) return;
+    writeExpenses([]);
+    renderExpenseItems();
+    setStatus('Список расходов очищен.');
+  };
+
+  window.downloadExpensesCsv = function(){
+    const arr = readExpenses();
+    const rows = [['Расход','Категория','Сумма','Валюта']].concat(arr.map(function(x){
+      return [x.title, CAT_NAMES[x.category]||'Другое', x.amount, x.currency||'RUB'];
+    }));
+    const csv = rows.map(function(row){
+      return row.map(function(cell){return '"' + String(cell||'').replace(/"/g,'""') + '"';}).join(';');
+    }).join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['\ufeff'+csv], {type:'text/csv;charset=utf-8'}));
+    a.download = 'belarus_2026_expenses.csv';
+    a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);}, 2000);
+  };
+
+  document.addEventListener('DOMContentLoaded', renderExpenseItems);
+})();
+
 </script>
 
 </body></html>
